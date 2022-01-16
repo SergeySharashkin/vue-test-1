@@ -35,12 +35,12 @@
               Email: <a :href="`mailto:${user.email}`">{{ user.email }}</a>
             </li>
             <li class="inform-item">
-              Phone Number:
+              Phone Number: 
               <a :href="`tel:${user.phone_number}`">{{ user.phone_number }}</a>
             </li>
             <li class="inform-item __with-btn">
-              <button @click="userUpdater()" class="user-update-btn">
-                Update user add remove liked beer list
+              <button @click="userUpdater()" class="btn">
+                Update user and remove liked beer list
               </button>
             </li>
           </ul>
@@ -96,8 +96,8 @@
         
       </div>
       <div class="button-contain">
-          <button class="user-update-btn __add" type="button" @click="addBeerInList()">Will be beer</button>
-          <button class="user-update-btn __update"  type="button" @click="newBeerHandler()">Another beer</button>
+          <button class="btn __add" type="button" @click="addBeerInList()">Will be beer</button>
+          <button class="btn __update"  type="button" @click="newBeerHandler()">Another beer</button>
         </div>
     </div>
   </section>
@@ -116,47 +116,51 @@
               </p>
               <div class="button-contain _beer-list">
 
-              <button @click="select(lB)" :id='lB.id' class="user-update-btn __more">More inform</button>
-              <button @click="del(lB)" class="user-update-btn __del">Delete</button>
+              <button @click="select(lB)" :id='lB.id' class="btn __more">More inform</button>
+              <button @click="del(lB)" class="btn __del">Delete beer</button>
               </div>
               
             </li>
           </ul>
-          <Popup :isOpen="isPopupOpen" @close="isPopupOpen = false">
-                  <ul class="list list__new-beer">
-          <li class="inform-item">
-            Brand: <span>{{ selectBeer.brand }}</span>
-          </li>
-          <li class="inform-item">
-            Name: <span>{{ selectBeer.name }}</span>
-          </li>
-          <li class="inform-item">
-            Style: <span>{{ selectBeer.style }}</span>
-          </li>
-          <li class="inform-item">
-            Hop: <span>{{ selectBeer.hop }}</span>
-          </li>
-          <li class="inform-item">
-            Yeast: <span>{{ selectBeer.yeast }}</span>
-          </li>
-          <li class="inform-item">
-            Malts: <span>{{ selectBeer.malts }}</span>
-          </li>
-          <li class="inform-item">
-            Ibu: <span>{{ selectBeer.ibu }}</span>
-          </li>
-          <li class="inform-item">
-            Alcohol: <span>{{ selectBeer.alcohol }}</span>
-          </li>
-          <li class="inform-item">
-            Blg: <span>{{ selectBeer.blg }}</span>
-          </li>
-        </ul>
-                </Popup> 
+          
         </template>
       </div>
     </div>
   </section>
+  <Popup :isOpen="isPopupOpen" @close="isPopupOpen = false">
+                 <template #intrestedBeer>
+  <ul class="list list__new-beer">
+          <li class="inform-item">
+            Brand: <span>{{ seletedBeer.brand }}</span>
+          </li>
+          <li class="inform-item">
+            Name: <span>{{ seletedBeer.name }}</span>
+          </li>
+          <li class="inform-item">
+            Style: <span>{{ seletedBeer.style }}</span>
+          </li>
+          <li class="inform-item">
+            Hop: <span>{{ seletedBeer.hop }}</span>
+          </li>
+          <li class="inform-item">
+            Yeast: <span>{{ seletedBeer.yeast }}</span>
+          </li>
+          <li class="inform-item">
+            Malts: <span>{{ seletedBeer.malts }}</span>
+          </li>
+          <li class="inform-item">
+            Ibu: <span>{{ seletedBeer.ibu }}</span>
+          </li>
+          <li class="inform-item">
+            Alcohol: <span>{{ seletedBeer.alcohol }}</span>
+          </li>
+          <li class="inform-item">
+            Blg: <span>{{ seletedBeer.blg }}</span>
+          </li>
+        </ul>
+                 </template>
+                
+                </Popup> 
 </template>
 
 <script>
@@ -229,7 +233,7 @@ return (this.likedBeers= JSON.parse(beersData));
     select(selectBeer) {
       this.seletedBeer = selectBeer;
       console.log(this.seletedBeer);
-      this.isPopupOpen = true;
+      return this.isPopupOpen = true;
     },
     del(deletedBeer) {
      

@@ -28,7 +28,8 @@ a {
   background-color: rgba(214, 163, 171, 0.836);
   max-width: 1200px;
   @media screen and (max-width: 480px) {
-    display: none;
+    max-width: 480px;
+    padding: 15px 25px;
   }
 }
 .tittel {
@@ -41,12 +42,19 @@ a {
 .profile-contain {
   display: flex;
   padding: 25px;
-  // align-items: baseline;
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    
+  }
 }
 .inform-contain {
   padding: 25px;
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .inform-item {
   font-size: 20px;
@@ -57,11 +65,23 @@ a {
   &.__with-btn {
     margin-top: auto;
     text-align: right;
+    @media screen and (max-width: 480px) {
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 20px;
+    text-align: center;
   }
 }
 .avatar {
   background-color: rgba(110, 70, 70, 0.479);
   border-radius: 50%;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    max-width: 384px;
+    height: auto;
+  }
 }
 .list {
   list-style: none;
@@ -71,12 +91,18 @@ a {
   flex-direction: column;
   &.list__profile {
     margin-left: 50px;
+    @media screen and (max-width: 480px) {
+      margin: 0;
+    }
   }
   &.list__new-beer {
     margin: 25px;
     min-width: 50%;
+    @media screen and (max-width: 480px) {
+      margin: 0;
+    }
   }
-
+  
 }
 .button-contain {
   display: flex;
@@ -85,9 +111,17 @@ a {
   margin-top: 25px;
   &._beer-list{
     margin: 0 0 0 25px;
+    @media screen and (max-width: 480px) {
+      margin: 0;
+      align-items:center ;
+      justify-content: space-between;
+      width: 100%;
+    }
   }
+  
+  
 }
-.user-update-btn {
+.btn {
   border: none;
   border-radius: 10px;
   max-width: 200px;
@@ -96,6 +130,11 @@ a {
   color: aqua;
   cursor: pointer;
   background-color: #7a040ae0;
+  @media screen and (max-width: 480px) {
+    // flex-direction: column;
+    // width: 100%;
+    max-width: 100px;
+  }
   &:hover {
     background-color: rgba(240, 139, 24, 0.301);
     color: darkblue;
@@ -105,16 +144,31 @@ a {
     min-width: 200px;
     background-color: rgba(60, 228, 135, 0.726);
     color: darkblue;
+    @media screen and (max-width: 480px) {
+      // flex-direction: column;
+      // width: 100%;
+      font-size: 16px;
+      padding: 5px 10px;
+      min-width: 0;
+    }
     &:hover {
       background-color: rgba(215, 73, 243, 0.884);
       color: rgb(255, 255, 255);
     }
+    
   }
   &.__update {
     font-size: 20px;
     min-width: 200px;
     background-color: rgba(215, 73, 243, 0.884);
     color: rgb(255, 255, 255);
+    @media screen and (max-width: 480px) {
+      // flex-direction: column;
+      // width: 100%;
+      font-size: 16px;
+      padding: 5px 10px;
+      min-width: 0;
+    }
     &:hover {
       background-color: rgba(60, 228, 135, 0.726);
       color: darkblue;
@@ -125,6 +179,12 @@ a {
     padding: 10px 20px;
     // opacity: 0.6;
     margin-left: 25px;
+    @media screen and (max-width: 480px) {
+      margin: 0;
+      font-size: 16px;
+      padding: 5px 10px;
+      min-width: 0;
+    }
   }
   &.__more{
     font-size: 18px;
@@ -132,11 +192,29 @@ a {
     margin: 0;
     background-color: rgba(60, 228, 135, 0.726);
     color: darkblue;
+    @media screen and (max-width: 480px) {
+      // flex-direction: column;
+      // width: 100%;
+      font-size: 16px;
+      padding: 5px 10px;
+      min-width: 0;
+    }
+  }
+  &.__close{
+    background-color: rgba(60, 228, 135, 0.726);
+    color: darkblue;
+    position: absolute;
+    right: 15px;
+    top: 15px;
   }
 }
 .new-beer-inform {
   display: flex;
   margin-left: 40px;
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    margin: 0;
+  }
 }
 .notify-text {
   text-align: center;
@@ -148,14 +226,56 @@ a {
   justify-content: space-between;
   width: 100%;
   padding: 15px;
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    
+  }
 }
 .beer-list-text {
   font-size: 25px;
   margin-right: auto;
+  @media screen and (max-width: 480px) {
+    font-size: 18px;
+    margin: 0 0 20px 0;
+  }
 }
 .beer-img {
   border-radius: 30px;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    margin-bottom: 25px;
+    
+  }
 }
 .border {
   border: 2px solid #000000;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+}
+.modal-win {
+  max-width: 600px;
+  border-radius: 20px;
+  background: #ffffff;
+  margin: 150px auto;
+  position: relative;
+  padding: 40px;
+  @media screen and (max-width: 480px) {
+   
+   
+    padding: 60px 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    
+  }
+}
+.pop-title {
+  text-align: center;
 }
