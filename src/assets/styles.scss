@@ -268,11 +268,8 @@ a {
   position: relative;
   padding: 40px;
   @media screen and (max-width: 480px) {
-   
-   
+  margin: 50px 15px auto 15px;
     padding: 60px 10px;
-    margin-left: 15px;
-    margin-right: 15px;
     
   }
 }
